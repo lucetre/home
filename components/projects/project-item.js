@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 export default function ProjectItem({ data }) {
-  const imgSrc = data.cover.file?.url || data.cover.external.url;
-  const title = data.properties.Name?.title[0].plain_text;
+  const imgSrc = data.cover?.file?.url || data.cover?.external?.url;
+  const title = data.properties.Name?.title[0]?.plain_text;
   const description = data.properties.Description?.rich_text[0]?.plain_text;
   const startDate = data.properties.Date?.date?.start;
   const endDate = data.properties.Date?.date?.start;
@@ -15,16 +15,18 @@ export default function ProjectItem({ data }) {
 
   return (
     <div className="project-card max-w-sm">
-      <Image
-        className="rounded-t-xl"
-        src={imgSrc}
-        alt="cover image"
-        width="100%"
-        height="50%"
-        layout="responsive"
-        objectFit="cover"
-        quality={100}
-      />
+      {imgSrc && (
+        <Image
+          className="rounded-t-xl"
+          src={imgSrc}
+          alt="image"
+          width="100%"
+          height="50%"
+          layout="responsive"
+          objectFit="cover"
+          quality={100}
+        />
+      )}
 
       <div className="p-4 flex flex-col">
         <h1 className="text-2xl font-bold">{title}</h1>
