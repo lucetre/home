@@ -9,14 +9,15 @@ export default function Hero() {
           Hi, nice to meet you! <br /> My name is lucetre.
         </h1>
         <p className="mb-8 leading-relaxed">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industrys standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          I have graduated as an undergraduate student majoring in Computer
+          Science and Engineering, and minoring in Entrepreneurship, an
+          interdisciplinary major at Seoul National University. I am interested
+          in Machine learning, Data mining, Tensor analysis, Blockchain, Web
+          development, and Site reliability engineering.
         </p>
         <div className="flex justify-center">
           <Link href="/projects">
-            <a className="btn-project">Notion Posts</a>
+            <a className="btn-project">View Projects</a>
           </Link>
         </div>
       </div>

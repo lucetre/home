@@ -7,16 +7,17 @@ export default function Projects({ projects }) {
     <Layout>
       <div className="flex flex-col items-center justify-center min-h-screen mb-10 px-3">
         <Head>
-          <title>Porfolio</title>
+          <title>My Portfolio - {projects.results?.length} Projects</title>
           <meta name="description" content="lucetre portfolio" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <h1 className="text-4xl font-bold sm:text-6xl">
-          Projects :
-          <span className="pl-4 text-blue-500">{projects.results?.length}</span>
+          <span className="pl-4 text-blue-500">
+            {projects.results?.length}{" "}
+          </span>
+          projects
         </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 p-12 m-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 p-12 m-4 gap-8">
           {projects.results?.map((aProject) => (
             <ProjectItem key={aProject.id} data={aProject} />
           ))}
@@ -45,10 +46,6 @@ export async function getStaticProps() {
     options
   );
   const projects = await res.json();
-
-  // const projectNames = projects.results?.map((aProject) =>(
-  //     aProject.properties.Name?.title[0].plain_text
-  // ))
 
   return {
     props: { projects }, // will be passed to the page component as props
