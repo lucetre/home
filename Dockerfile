@@ -5,7 +5,7 @@ ARG NEXT_PUBLIC_NOTION_DB_ID
 
 RUN mkdir -p /app
 WORKDIR /app
-ADD /my-app /app/
+ADD /app /app/
 
 RUN echo "NEXT_PUBLIC_NOTION_TOKEN=$NEXT_PUBLIC_NOTION_TOKEN" > /app/.env
 RUN echo "NEXT_PUBLIC_NOTION_DB_ID=$NEXT_PUBLIC_NOTION_DB_ID" >> /app/.env
