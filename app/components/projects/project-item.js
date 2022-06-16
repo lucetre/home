@@ -5,7 +5,7 @@ export default function ProjectItem({ data }) {
   const title = data.properties.Name?.title[0]?.plain_text;
   const description = data.properties.Description?.rich_text[0]?.plain_text;
   const startDate = data.properties.Date?.date?.start;
-  const endDate = data.properties.Date?.date?.start;
+  const endDate = data.properties.Date?.date?.end;
   const github = data.properties.Github?.url;
   const youtube = data.properties.Youtube?.url;
   const page = data.properties.Page?.url;
