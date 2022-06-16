@@ -39,9 +39,8 @@ jobs:
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:latest
           build-args: |
-            REACT_APP_GOOGLE_MAPS_API_KEY=${{ secrets.REACT_APP_GOOGLE_MAPS_API_KEY }}
-            REACT_APP_RAPID_API_TRAVEL_API_KEY=${{ secrets.REACT_APP_RAPID_API_TRAVEL_API_KEY }}
-            REACT_APP_LINKEDART_JWT=${{ secrets.REACT_APP_LINKEDART_JWT }}
+            NEXT_PUBLIC_NOTION_DB_ID=${{ secrets.NEXT_PUBLIC_NOTION_DB_ID }}
+            NEXT_PUBLIC_NOTION_TOKEN=${{ secrets.NEXT_PUBLIC_NOTION_TOKEN }}
   deploy:
     needs: build
     name: Deploy
