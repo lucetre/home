@@ -10,9 +10,10 @@ export default function ProjectItem({ data }) {
   const youtube = data.properties.Youtube?.url;
   const page = data.properties.Page?.url;
   const presentation = data.properties.Presentation?.url;
+  const colab = data.properties.Colab?.url;
   const tags = data.properties.Tags?.multi_select;
   const roles = data.properties.Roles?.multi_select;
-  console.log(imgSrc);
+
   return (
     <div className="project-card max-w-sm">
       {imgSrc && (
@@ -38,30 +39,37 @@ export default function ProjectItem({ data }) {
         <p className="mt-2 mb-1 text-justify text-sm">{description}</p>
         <div className="table-cell text-center mb-2">
           {page && (
-            <div className="inline-block px-2 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
+            <div className="inline-block px-1 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
               <a className="underline" href={page}>
                 Page
               </a>
             </div>
           )}
           {github && (
-            <div className="inline-block px-2 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
+            <div className="inline-block px-1 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
               <a className="underline" href={github}>
                 GitHub
               </a>
             </div>
           )}
           {youtube && (
-            <div className="inline-block px-2 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
+            <div className="inline-block px-1 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
               <a className="underline" href={youtube}>
                 YouTube
               </a>
             </div>
           )}
           {presentation && (
-            <div className="inline-block px-2 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
+            <div className="inline-block px-1 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
               <a className="underline" href={presentation}>
                 Presentation
+              </a>
+            </div>
+          )}
+          {colab && (
+            <div className="inline-block px-1 py-1 mr-2 mt-1 rounded-md w-fit text-sm">
+              <a className="underline" href={colab}>
+                Colab
               </a>
             </div>
           )}
