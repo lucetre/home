@@ -76,7 +76,7 @@ export default function Footer() {
                   <g transform="">
                     <g
                       fill="none"
-                      fill-rule="nonzero"
+                      fillRule="nonzero"
                       stroke="none"
                       strokeWidth="1"
                       strokeLinecap="butt"
