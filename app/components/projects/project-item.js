@@ -12,7 +12,7 @@ export default function ProjectItem({ data }) {
   const presentation = data.properties.Presentation?.url;
   const tags = data.properties.Tags?.multi_select;
   const roles = data.properties.Roles?.multi_select;
-
+  console.log(imgSrc);
   return (
     <div className="project-card max-w-sm">
       {imgSrc && (
