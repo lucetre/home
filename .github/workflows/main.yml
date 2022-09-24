@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Build and Deploy app to GitHub Pages
-        uses: lucetre/build-deploy-gh-pages@v0.1
+        uses: lucetre/build-deploy-gh-pages@v0.0.1
