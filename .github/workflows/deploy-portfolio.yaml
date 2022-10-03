@@ -1,4 +1,4 @@
-name: CI/CD Docker
+name: CI/CD - Portfolio
 
 on:
   push:
@@ -56,5 +56,3 @@ jobs:
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
           docker run -d -p 3000:3000 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
-          docker stop jupyterlab && docker rm jupyterlab
-          docker run -d -p 8888:8888 --name jupyterlab -e JUPYTER_ENABLE_LAB=yes jupyter/base-notebook:latest
