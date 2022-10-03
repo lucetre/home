@@ -1,8 +1,7 @@
 name: CI/CD - Portfolio
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 env:
   DOCKER_IMAGE: ghcr.io/${{ github.actor }}/lucetre.xyz
