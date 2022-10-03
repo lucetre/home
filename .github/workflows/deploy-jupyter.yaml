@@ -8,8 +8,7 @@ jobs:
     name: Deploy
     runs-on: [self-hosted, label-go]
     steps:
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+      - uses: docker-practice/actions-setup-docker@master
         
       - name: Docker run
         run: |
