@@ -3,18 +3,25 @@ name: CI/CD - Jupyter
 on:
   workflow_dispatch:
 
+env:
+  JUPYTER_DIR: jupyter
+
 jobs:
   deploy:
     name: Deploy
     runs-on: [self-hosted, label-go]
     steps:
-      - name: Login to ghcr
-        uses: docker/login-action@v1
+      - name: Checkout files
+        uses: Bhacaz/checkout-files@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GHCR_TOKEN }}
+         files: ${{ env.JUPYTER_DIR }}
       - name: Docker run
         run: |
+          chmod -R 777 ${{ env.JUPYTER_DIR }}
           docker stop jupyterlab && docker rm jupyterlab
-          docker run -d -p 8080:8888 --name jupyterlab -e JUPYTER_ENABLE_LAB=yes -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" jupyter/base-notebook:latest
+          docker run -d -p 8080:8888 && \
+            --name jupyterlab && \
+            -v ${{ env.JUPYTER_DIR }}:/home/jovyan/work:rw && \
+            -e JUPYTER_ENABLE_LAB=yes && \
+            -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" && \
+            jupyter/base-notebook:latest
