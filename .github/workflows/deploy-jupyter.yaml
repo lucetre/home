@@ -11,7 +11,7 @@ jobs:
       - name: Docker run
         run: |
           docker stop jupyterlab && docker rm jupyterlab
-          docker run -d --rm \
+          docker run -d \
             --restart always \
             --name jupyterlab \
             -p 8080:8888 \
