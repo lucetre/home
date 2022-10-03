@@ -17,7 +17,6 @@ jobs:
          files: ${{ env.JUPYTER_DIR }}
       - name: Docker run
         run: |
-          mkdir work
           echo hello > work/test
           chmod -R 777 work
           sudo docker stop jupyterlab && sudo docker rm jupyterlab
