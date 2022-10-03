@@ -3,26 +3,16 @@ name: CI/CD - Jupyter
 on:
   workflow_dispatch:
 
-env:
-  JUPYTER_DIR: jupyter
-
 jobs:
   deploy:
     name: Deploy
     runs-on: [self-hosted, label-go]
     steps:
-      - name: Checkout files
-        uses: Bhacaz/checkout-files@v2
-        with:
-         files: ${{ env.JUPYTER_DIR }}
       - name: Docker run
         run: |
-          echo hello > work/test
-          chmod -R 777 work
-          sudo docker stop jupyterlab && sudo docker rm jupyterlab
-          sudo docker run -d --restart always --name jupyterlab \
+          docker stop jupyterlab && docker rm jupyterlab
+          docker run -d --restart always --name jupyterlab \
             -p 8080:8888 \
-            -v work:/home/jovyan/work:rw \
             -e JUPYTER_ENABLE_LAB=yes \
             -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" \
             jupyter/base-notebook:latest
