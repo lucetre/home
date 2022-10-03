@@ -8,8 +8,6 @@ jobs:
     name: Deploy
     runs-on: [self-hosted, label-go]
     steps:
-      - uses: docker-practice/actions-setup-docker@master
-        
       - name: Docker run
         run: |
           docker stop jupyterlab && docker rm jupyterlab
