@@ -17,15 +17,11 @@ jobs:
          files: ${{ env.JUPYTER_DIR }}
       - name: Docker run
         run: |
-          ls -al
-          mkdir work
-          echo 123 > work/test
-          chmod -R 777 work
-          ls -al
-          docker stop jupyterlab && docker rm jupyterlab
-          docker run -d --restart always --name jupyterlab \
+          chmod -R 777 ${{ env.JUPYTER_DIR }}
+          sudo docker stop jupyterlab && sudo docker rm jupyterlab
+          sudo docker run -d --restart always --name jupyterlab \
             -p 8080:8888 \
-            -v work:/home/jovyan/work:rw \
+            -v ${{ env.JUPYTER_DIR }}:/home/jovyan/work:rw \
             -e JUPYTER_ENABLE_LAB=yes \
             -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" \
             jupyter/base-notebook:latest
