@@ -19,4 +19,4 @@ jobs:
             -e GRANT_SUDO=yes \
             -e JUPYTER_ENABLE_LAB=yes \
             -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" \
-            jupyter/base-notebook:latest
+            jupyter/datascience-notebook:latest
