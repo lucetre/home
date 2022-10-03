@@ -24,6 +24,9 @@ export default function Header() {
             <Link href="/projects">
               <a className="mr-5 hover:text-gray-900">Projects</a>
             </Link>
+            <Link href="http://lucetre.xyz:8080">
+              <a className="mr-5 hover:text-gray-900">Jupyter</a>
+            </Link>
             <Link href="https://lucetre.github.io">
               <a className="mr-5 hover:text-gray-900">Blog</a>
             </Link>

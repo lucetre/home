@@ -9,11 +9,11 @@ export default function Hero() {
           Hi, nice to meet you! <br /> My name is lucetre.
         </h1>
         <p className="mb-8 leading-relaxed">
-          I have graduated as an undergraduate student majoring in Computer
-          Science and Engineering, and minoring in Entrepreneurship, an
-          interdisciplinary major at Seoul National University. I am interested
-          in Machine learning, Data mining, Tensor analysis, Blockchain, Web
-          development, and Site reliability engineering.
+          I graduated with B.S. degrees in Computer Science and Engineering, and
+          Entrepreneurship as an interdisciplinary major at Seoul National
+          University. I am interested in Machine Learning, Data Mining, Tensor
+          Analysis, Blockchain, Web Development, and Site Reliability
+          Engineering.
         </p>
         <div className="flex justify-center">
           <Link href="/projects">
