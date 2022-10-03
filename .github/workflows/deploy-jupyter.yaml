@@ -21,7 +21,7 @@ jobs:
           docker stop jupyterlab && docker rm jupyterlab
           docker run -d --restart always --name jupyterlab \
             -p 8080:8888 \
-            -v xyz/${{ env.JUPYTER_DIR }}:/home/jovyan/work:rw \
+            -v xyz:/home/jovyan/work:rw \
             -e JUPYTER_ENABLE_LAB=yes \
             -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" \
             jupyter/base-notebook:latest
