@@ -11,8 +11,12 @@ jobs:
       - name: Docker run
         run: |
           docker stop jupyterlab && docker rm jupyterlab
-          docker run -d --restart always --name jupyterlab \
+          docker run -d --rm \
+            --restart always \
+            --name jupyterlab \
             -p 8080:8888 \
+            --user root \
+            -e GRANT_SUDO=yes \
             -e JUPYTER_ENABLE_LAB=yes \
             -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" \
             jupyter/base-notebook:latest
