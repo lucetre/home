@@ -1,4 +1,4 @@
-FROM node:16.14.0 as build 
+FROM node:lts-alpine as build 
 
 ARG NEXT_PUBLIC_NOTION_TOKEN
 ARG NEXT_PUBLIC_NOTION_DB_ID
