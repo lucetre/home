@@ -1,0 +1,21 @@
+name: CI/CD - Jupyter
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: [self-hosted, label-go]
+    steps:
+      - name: Login to ghcr
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+      - name: Docker run
+        run: |
+          docker stop jupyterlab && docker rm jupyterlab
+          docker run -d -p 8080:8888 --name jupyterlab -e JUPYTER_ENABLE_LAB=yes -e JUPYTER_TOKEN="${{ secrets.JUPYTER_TOKEN }}" jupyter/base-notebook:latest
