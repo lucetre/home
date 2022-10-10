@@ -72,9 +72,16 @@ dist/
 5. `crontab -e`
    - `0 12 * * * /usr/bin/certbot renew --quiet`
 
+# ec2 Restart
+1. `cd actions-runner`
+1. `nohup ./run.sh &`
+2. `tail -f nohup.out`
+3. `sudo systemctl start nginx`
+
 # Reference
 
 - https://codegear.tistory.com/84
 - https://www.youtube.com/watch?v=Sm8GbC02MlE
 - https://www.youtube.com/watch?v=ehITvx8VPFI
 - https://medium.com/today-i-solved/how-to-deploy-next-js-on-aws-ec2-with-ssl-https-7980ec6fe8d3
+
