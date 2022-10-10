@@ -62,6 +62,21 @@ dist/
 2. `sudo amazon-linux-extras install -y nginx1`
 3. `nginx -v`
 4. `sudo systemctl start nginx`
+5. `vim /etc/nginx/conf.d/your-site.conf`
+   ```
+   server {
+       listen 80;
+       server_name nextjs.your-site.com;
+   location / {
+           proxy_pass http://127.0.0.1:3000;
+           proxy_set_header Host $host;
+           proxy_set_header X-Real-IP $remote_addr;
+           proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+           proxy_set_header X-Forwarded-Proto $scheme;
+       }
+   }
+   ```
+6. `sudo systemctl restart nginx`
 
 ### Certbot
 
@@ -74,8 +89,8 @@ dist/
 
 # ec2 Restart
 1. `cd actions-runner`
-1. `nohup ./run.sh &`
-2. `tail -f nohup.out`
+2. `nohup ./run.sh &`
+3. `tail -f nohup.out`
 3. `sudo systemctl start nginx`
 
 # Reference
