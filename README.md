@@ -92,6 +92,7 @@ dist/
 2. `nohup ./run.sh &`
 3. `tail -f nohup.out`
 3. `sudo systemctl start nginx`
+4. `sudo certbot --nginx`
 
 # Reference
 
